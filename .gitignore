@@ -1,0 +1,12 @@
+conf/
+data/
+notebooks
+venv
+.vscode
+**/__pycache__/**
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.pytest_cache
