@@ -30,4 +30,5 @@ Run pre-commit install.
 # Running tests
 pytest tennis_elo
 
-#To install package execute: python setup.py install
+#To install package execute: python setup.py install 
+or try: pip install .
