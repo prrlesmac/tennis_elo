@@ -1,0 +1,2 @@
+black==v19.10b0
+pre-commit>=1.12.0

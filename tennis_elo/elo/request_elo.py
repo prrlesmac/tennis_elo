@@ -1,7 +1,3 @@
-import pandas as pd
-import numpy as np
-
-
 def calculate_we(elo1, elo2):
     dr = elo1 - elo2
     we = 1 / (10 ** (-dr / 400) + 1)
