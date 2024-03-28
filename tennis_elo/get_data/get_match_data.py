@@ -20,7 +20,7 @@ def open_github_csv_as_dataframe(repo_url, file_path):
 
     if response.status_code == 200:
         csv_text = response.text
-        df = pd.read_csv(StringIO(csv_text))
+        df = pd.read_csv(StringIO(csv_text), dtype={"score": str})
         return df
     else:
         print("Failed to open CSV file.")
@@ -32,6 +32,19 @@ def get_atp_matches(list_of_years):
     for year in list_of_years:
         matches = open_github_csv_as_dataframe(
             "https://github.com/JeffSackmann/tennis_atp", f"atp_matches_{year}.csv"
+        )
+        matches_all.append(matches)
+
+    matches_all = pd.concat(matches_all)
+
+    return matches_all
+
+
+def get_wta_matches(list_of_years):
+    matches_all = []
+    for year in list_of_years:
+        matches = open_github_csv_as_dataframe(
+            "https://github.com/JeffSackmann/tennis_wta", f"wta_matches_{year}.csv"
         )
         matches_all.append(matches)
 

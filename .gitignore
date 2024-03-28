@@ -4,9 +4,13 @@ notebooks
 venv
 .vscode
 **/__pycache__/**
+**/__init__.py
 
 # Distribution / packaging
 build/
 dist/
 *.egg-info/
 .pytest_cache
+
+# files
+TODOS.txt

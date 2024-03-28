@@ -30,5 +30,17 @@ Run pre-commit install.
 # Running tests
 pytest tennis_elo
 
-#To install package execute: python setup.py install 
+#To install package execute: python setup.py install
 or try: pip install .
+
+
+
+# setup docker
+In a CMD containing the repo run the following:
+docker build -t tennis_elo .
+
+To run the container
+docker run -it --rm tennis_elo
+
+To view inside container
+docker exec -it tennis_elo sh
