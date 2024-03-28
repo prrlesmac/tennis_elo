@@ -44,3 +44,6 @@ docker run -it --rm tennis_elo
 
 To view inside container
 docker exec -it tennis_elo sh
+
+To clear space
+docker system prune --force
