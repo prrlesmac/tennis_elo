@@ -47,3 +47,12 @@ docker exec -it tennis_elo sh
 
 To clear space
 docker system prune --force
+
+to run fast api
+docker run -d -p 8000:8000 tennis_elo
+
+
+
+# to start the app locally
+uvicorn main:app --reload
+go to browser: http://localhost:8000/get?data={"key":"value"}

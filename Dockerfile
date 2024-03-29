@@ -14,4 +14,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN python setup.py install
 
 # Run your Python script when the container launches
-CMD ["python", "tennis_elo/pipeline/run_we.py"]
+#CMD ["python", "tennis_elo/pipeline/run_we.py"]
+
+# Expose port 8000 (or any other port your FastAPI application listens on)
+EXPOSE 8000
+
+# Command to run the FastAPI application using uvicorn with auto-reload
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
