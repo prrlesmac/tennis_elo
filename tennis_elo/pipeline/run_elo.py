@@ -4,7 +4,7 @@ from tennis_elo.get_data.get_match_data import (
     get_wta_matches,
 )
 from tennis_elo.elo.calculate_elo import calculate_elo_history, get_current_elo
-import tennis_elo.config.config as config
+from tennis_elo.config import config
 import os
 
 atp_matches = get_atp_matches(range(config.ELO_START_YEAR, config.ELO_END_YEAR + 1))
