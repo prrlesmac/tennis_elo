@@ -16,7 +16,9 @@ players_master = open_github_csv_as_dataframe(
 matches, elos = calculate_elo_history(atp_matches, 20)
 current_elos = get_current_elo(players_master, elos)
 
-current_elos.to_csv("data/04_model_output/current_elos_atp.csv")
+if not os.path.exists(config.ELO_OUTPUT_FOLDER):
+    os.mkdir(config.ELO_OUTPUT_FOLDER)
+current_elos.to_csv(f"{config.ELO_OUTPUT_FOLDER}/current_elos_atp.csv")
 
 players_master = open_github_csv_as_dataframe(
     "https://github.com/JeffSackmann/tennis_wta", f"wta_players.csv"
@@ -25,7 +27,7 @@ matches, elos = calculate_elo_history(wta_matches, 20)
 current_elos = get_current_elo(players_master, elos)
 
 if not os.path.exists(config.ELO_OUTPUT_FOLDER):
-    os.makedirs(config.ELO_OUTPUT_FOLDER)
+    os.mkdir(config.ELO_OUTPUT_FOLDER)
 current_elos.to_csv(f"{config.ELO_OUTPUT_FOLDER}/current_elos_wta.csv")
 
 print(current_elos)

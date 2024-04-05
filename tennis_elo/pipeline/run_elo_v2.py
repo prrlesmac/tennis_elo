@@ -15,6 +15,8 @@ players_master = open_github_csv_as_dataframe(
 matches, elos = calculate_elo_history(atp_matches, 20)
 current_elos = get_current_elo(players_master, elos)
 
+if not os.path.exists("/data/04_model_output"):
+    os.mkdir("/data/04_model_output")
 current_elos.to_csv("data/04_model_output/current_elos_atp.csv")
 
 players_master = open_github_csv_as_dataframe(
@@ -24,7 +26,7 @@ matches, elos = calculate_elo_history(wta_matches, 20)
 current_elos = get_current_elo(players_master, elos)
 
 if not os.path.exists("/data/04_model_output"):
-    os.makedirs("/data/04_model_output")
+    os.mkdir("/data/04_model_output")
 current_elos.to_csv("/data/04_model_output/current_elos_wta.csv")
 
 print(current_elos)
