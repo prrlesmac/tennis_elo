@@ -54,6 +54,11 @@ docker run -d -p 8000:8000 tennis_elo
 push the image to dockerhub
 docker push tennis_elo:latest
 
+To run process inside the container, after building image
+docker run --name tennis_elo -d -p 8000:8000 tennis_elo
+docker exec tennis_elo python tennis_elo/pipeline/run_elo.py
+
+
 
 # to start the app locally
 uvicorn main:app --reload

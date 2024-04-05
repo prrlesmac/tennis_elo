@@ -5,6 +5,7 @@ from tennis_elo.get_data.get_match_data import (
 )
 from tennis_elo.elo.calculate_elo import calculate_elo_history, get_current_elo
 import tennis_elo.config.config as config
+import os
 
 atp_matches = get_atp_matches(range(config.ELO_START_YEAR, config.ELO_END_YEAR + 1))
 wta_matches = get_wta_matches(range(config.ELO_START_YEAR, config.ELO_END_YEAR + 1))
@@ -22,6 +23,9 @@ players_master = open_github_csv_as_dataframe(
 )
 matches, elos = calculate_elo_history(wta_matches, 20)
 current_elos = get_current_elo(players_master, elos)
-current_elos.to_csv("data/04_model_output/current_elos_wta.csv")
+
+if not os.path.exists(config.ELO_OUTPUT_FOLDER):
+    os.makedirs(config.ELO_OUTPUT_FOLDER)
+current_elos.to_csv(f"{config.ELO_OUTPUT_FOLDER}/current_elos_wta.csv")
 
 print(current_elos)
