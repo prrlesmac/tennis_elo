@@ -13,8 +13,8 @@ RUN echo "Installing dependencies..."
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python setup.py install
 
-# Run your Python script when the container launches
-#CMD ["python", "tennis_elo/pipeline/run_we.py"]
+# Run your Python script to calc elos tables
+RUN python tennis_elo/pipeline/run_elo_v2.py
 
 # Expose port 8000 (or any other port your FastAPI application listens on)
 EXPOSE 8000
