@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN python setup.py install
 
 # Run your Python script to calc elos tables
-RUN python tennis_elo/pipeline/run_elo_v2.py
+#RUN python tennis_elo/pipeline/run_elo_v2.py
+RUN python tennis_elo/pipeline/run_elo.py
 
 # Expose port 8000 (or any other port your FastAPI application listens on)
 EXPOSE 8000
