@@ -1,4 +1,5 @@
 ELO_START_YEAR = 2020
 ELO_END_YEAR = 2024
 
-ELO_OUTPUT_FOLDER = "data/04_model_output"
+DATA_FOLDER = "data"
+ELO_OUTPUT_FOLDER = "04_model_output"
